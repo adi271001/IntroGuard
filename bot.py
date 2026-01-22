@@ -1,6 +1,18 @@
 import discord
 import os
+import threading
+from flask import Flask
 from discord.ext import commands
+
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+def run_flask():
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+
 
 # Enable intents with message content access
 intents = discord.Intents.default()
@@ -72,6 +84,7 @@ async def deltest(ctx):
         await ctx.send("Deleted your command message!")
     except Exception as e:
         await ctx.send(f"Delete failed: {e}")
-
+        
+threading.Thread(target=run_flask).start()
 bot.run(os.getenv("DISCORD_TOKEN"))
 
