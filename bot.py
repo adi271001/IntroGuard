@@ -1,7 +1,8 @@
 import discord
 import os
 from discord.ext import commands
-
+port = int(os.environ.get("PORT", 10000))
+app.run(host="0.0.0.0", port=port)
 # Enable intents with message content access
 intents = discord.Intents.default()
 intents.message_content = True
