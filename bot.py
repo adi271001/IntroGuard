@@ -21,7 +21,7 @@ intents.message_content = True
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 # List of allowed channel IDs where deletion is skipped (put your actual allowed channel IDs here)
-ALLOWED_CHANNELS = [1446493163731550330, 1448260506031882373]  # e.g. [123456789012345678]
+ALLOWED_CHANNELS = [1446493163731550330, 1448260506031882373, 1445096903019597926, 1445107837184249946]  # e.g. [123456789012345678]
 
 INTRO_THRESHOLD = 0.1  # Dummy threshold for demo
 
@@ -41,7 +41,7 @@ def intro_score(text: str) -> float:
     text = text.lower()
     intro_keywords = [
         "i am", "i'm", "hello", "hi", "developer", "dev", "open to collab",
-        "looking for", "resume", "bio", "introduce myself", "available for"
+        "looking for", "resume", "bio", "introduce myself", "available for", "spam", "i m", "delete", "hey", "hello", "hola"
     ]
     hits = sum(word in text for word in intro_keywords)
     return hits / len(intro_keywords)
