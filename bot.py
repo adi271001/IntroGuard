@@ -1,4 +1,5 @@
 import discord
+import os
 from discord.ext import commands
 
 # Enable intents with message content access
@@ -72,5 +73,5 @@ async def deltest(ctx):
     except Exception as e:
         await ctx.send(f"Delete failed: {e}")
 
-bot.run("MTQ2MzgyMDIxNjMyMzY3NDE1Mw.GruL-U.JTwEkUqEKczXCZ2-eEXc1UU_HI-c_4H1iURk2A")
+bot.run(os.getenv("DISCORD_TOKEN"))
 
